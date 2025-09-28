@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cactro Test</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Instagram Stories</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <h1>Welcome to Cactro Test</h1>
-    <p>This is a simple HTML page for testing purposes.</p>
-    <div id="testDiv"></div>
-    <input type="text" id="testInput" placeholder="Type something...">
-    <button id="testButton">Click Me!</button>
-    <script src="script.js"></script>
+    <div class="stories-container">
+        <h2>Stories</h2>
+        <div class="stories-list"></div>
+    </div>
+
+    <div class="story-viewer" style="display: none;">
+        <div class="story-progress"></div>
+        <div class="story-content">
+            <div class="story-header">
+                <img src="" alt="User Avatar" class="story-avatar">
+                <span class="story-username"></span>
+            </div>
+            <img src="" alt="Story Image" class="story-image">
+            <div class="story-navigation">
+                <div class="prev-story"></div>
+                <div class="next-story"></div>
+            </div>
+        </div>
+        <div class="loader"></div>
+    </div>
+
+    <script src="./script.js"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+[
+    {
+        "username": "user1",
+        "avatar": "https://i.pravatar.cc/150?u=user1",
+        "stories": [
+            { "imageUrl": "https://picsum.photos/1080/1920?random=1" },
+            { "imageUrl": "https://picsum.photos/1080/1920?random=2" }
+        ]
+    },
+    {
+        "username": "user2",
+        "avatar": "https://i.pravatar.cc/150?u=user2",
+        "stories": [
+            { "imageUrl": "https://picsum.photos/1080/1920?random=3" }
+        ]
+    },
+    {
+        "username": "user3",
+        "avatar": "https://i.pravatar.cc/150?u=user3",
+        "stories": [
+            { "imageUrl": "https://picsum.photos/1080/1920?random=4" },
+            { "imageUrl": "https://picsum.photos/1080/1920?random=5" },
+            { "imageUrl": "https://picsum.photos/1080/1920?random=6" }
+        ]
+    },
+    {
+        "username": "user4",
+        "avatar": "https://i.pravatar.cc/150?u=user4",
+        "stories": [
+            { "imageUrl": "https://picsum.photos/1080/1920?random=7" }
+        ]
+    },
+    {
+        "username": "user5",
+        "avatar": "https://i.pravatar.cc/150?u=user5",
+        "stories": [
+            { "imageUrl": "https://picsum.photos/1080/1920?random=8" },
+            { "imageUrl": "https://picsum.photos/1080/1920?random=9" }
+        ]
+    }
+]
