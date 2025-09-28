@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentUserIndex = 0;
     let currentStoryIndex = 0;
     let storyTimeout;
+    const viewedUsers = new Set();
 
     // Fetch stories from an external JSON file
     fetch('stories.json')
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         storiesData.forEach((user, index) => {
             const storyItem = document.createElement('div');
             storyItem.classList.add('story-item');
+            storyItem.dataset.username = user.username; // Add data attribute for easy selection
             storyItem.innerHTML = `
                 <img src="${user.avatar}" alt="${user.username}'s Story">
                 <p>${user.username}</p>
@@ -31,6 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
             storyItem.addEventListener('click', () => openStory(index));
             storiesList.appendChild(storyItem);
         });
+    }
+
+    function markUserAsViewed(username) {
+        if (!viewedUsers.has(username)) {
+            viewedUsers.add(username);
+            const storyItem = document.querySelector(`.story-item[data-username="${username}"]`);
+            if (storyItem) {
+                storyItem.classList.add('viewed');
+            }
+        }
     }
 
     function openStory(userIndex) {
@@ -86,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
             currentStoryIndex++;
             showStory();
         } else {
+            // Mark as viewed when the last story of a user finishes
+            markUserAsViewed(storiesData[currentUserIndex].username);
             nextUser();
         }
     }
@@ -112,12 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function prevUser() {
         if (currentUserIndex > 0) {
             currentUserIndex--;
-            currentStoryIndex = storiesData[currentUserIndex].stories.length - 1;
+            currentStoryIndex = 0; // Start from the first story of the previous user
             showStory();
         }
     }
 
     function closeStoryViewer() {
+        // Mark the current user's story as viewed when closing the viewer
+        markUserAsViewed(storiesData[currentUserIndex].username);
         storyViewer.style.display = 'none';
         clearTimeout(storyTimeout);
     }

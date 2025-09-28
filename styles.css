@@ -40,6 +40,11 @@ h2 {
     padding: 2px;
 }
 
+/* New style for viewed stories */
+.story-item.viewed img {
+    border-color: #dbdbdb;
+}
+
 .story-item p {
     margin: 4px 0 0;
     font-size: 12px;
